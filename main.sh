@@ -4,7 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 sudo apt-get update
 
-sudo apt-get install -y git build-essential curl zsh wget tmux git ripgrep stow direnv zoxide tig xclip xsel
+sudo apt-get install -y git build-essential curl wget tmux git
 
 # mamba / python
 echo "python."
@@ -32,9 +32,6 @@ npm install -g @openai/codex
 # history -s "codex --full-auto"
 
 copilot --allow-all-tools --version
-
-# set up dev env
-sudo chsh -s /usr/bin/zsh $USER
 
 # cd $HOME
 # mkdir dev/
@@ -67,9 +64,7 @@ $STOWT direnv
 $STOWT git
 $STOWT tmux
 $STOWT vim
-$STOWT yazi
 $STOWT bash
-$STOWT zsh
 
 cd ~
 
