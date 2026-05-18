@@ -6,22 +6,6 @@ sudo apt-get update
 
 sudo apt-get install -y git build-essential curl zsh wget tmux git ripgrep stow direnv zoxide tig xclip xsel
 
-# rust
-echo "rust."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-source ~/.cargo/env
-
-# some rust pcks
-# cargo install --force yazi-build
-# ya pkg install
-# cargo install exa
-# cargo install zoxide
-
-# starship
-mkdir -p ~/.bin/met-dev
-curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.bin/met-dev -y
-
 # mamba / python
 echo "python."
 wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
@@ -49,20 +33,13 @@ npm install -g @openai/codex
 
 copilot --allow-all-tools --version
 
-# latex
-sudo apt-get install -y texlive-latex-extra texlive-latex-recommended latexmk texlive-science texlive-bibtex-extra biber
-
 # set up dev env
 sudo chsh -s /usr/bin/zsh $USER
-
-# set up nvim
-mamba env create -f ~/met-dev-setup/vim/.vim/environment.yml -y
-ln -s ~/.mconda3/envs/neovim/bin/nvim ~/.bin/met-dev/
 
 # cd $HOME
 # mkdir dev/
 # cd dev/
-# git clone https://github.com/gauteh/met-dev-setup.git
+# git clone https://github.com/knutfrode/met-dev-setup.git
 
 # set up gh
 (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
@@ -86,10 +63,8 @@ STOWT="stow -t /home/$USER"
 cd ~/met-dev-setup/
 
 $STOWT conda
-$STOWT cargo
 $STOWT direnv
 $STOWT git
-$STOWT starship
 $STOWT tmux
 $STOWT vim
 $STOWT yazi
@@ -98,20 +73,13 @@ $STOWT zsh
 
 cd ~
 
-# set up vim
-mamba activate neovim
-~/.mconda3/envs/neovim/bin/nvim -c ':PlugUpdate' -c ':qa'
-~/.mconda3/envs/neovim/bin/nvim -c ':LspInstall rust-analyzer basedpyright' -c ':qa'
-~/.mconda3/envs/neovim/bin/nvim -c ':TSInstall rust python' -c ':qa'
-
 # current repos
 mkdir dev
 cd dev
 
 git config --global receive.denyCurrentBranch warn
 
-git clone https://github.com/gauteh/max-m10s-rs.git
-git clone https://github.com/gauteh/sfy.git
 git clone https://github.com/OpenDrift/opendrift.git
 git clone https://github.com/OpenDrift/trajan.git
-
+git clone https://github.com/OpenDrift/trajan.git
+git clone https://github.com:/erabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
