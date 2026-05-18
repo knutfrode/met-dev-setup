@@ -43,3 +43,5 @@ if [ -f "${HOME}/.local/share/zrs/z.sh" ]; then
   . "${HOME}/.local/share/zrs/z.sh"
 fi
 
+alias ..='cd ..'
+alias 'l=ls -lrth --hide="*.pyc"'
