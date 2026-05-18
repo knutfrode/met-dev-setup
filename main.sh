@@ -33,6 +33,9 @@ npm install -g @openai/codex
 
 copilot --allow-all-tools --version
 
+# set up dev env
+sudo chsh -s /bin/bash $USER
+
 # cd $HOME
 # mkdir dev/
 # cd dev/
