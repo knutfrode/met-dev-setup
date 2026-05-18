@@ -82,4 +82,4 @@ git config --global receive.denyCurrentBranch warn
 git clone https://github.com/OpenDrift/opendrift.git
 git clone https://github.com/OpenDrift/trajan.git
 git clone https://github.com/OpenDrift/trajan.git
-git clone https://github.com:/erabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
+git clone https://github.com/jerabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
