@@ -80,8 +80,8 @@ conda activate opendrift
 pip install --no-deps -e .
 
 # Install TrajAn
-git clone https://github.com/OpenDrift/trajan.git
 cd ../trajan
+git clone https://github.com/OpenDrift/trajan.git
 pip install --no-deps -e .
 cd ..
 
