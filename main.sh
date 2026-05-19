@@ -14,6 +14,7 @@ source "${HOME}/.mconda3/etc/profile.d/mamba.sh"
 # mamba shell init
 
 conda config --set always_yes true
+conda init
 
 # nvm
 echo "install nvm, node"GENT.md
@@ -78,10 +79,11 @@ cd opendrift
 mamba env create -f environment.yml
 conda activate opendrift
 pip install --no-deps -e .
+cd ..
 
 # Install TrajAn
-cd ../trajan
 git clone https://github.com/OpenDrift/trajan.git
+cd trajan
 pip install --no-deps -e .
 cd ..
 
