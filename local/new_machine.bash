@@ -16,5 +16,8 @@ grep "Host mai" ~/.ssh/config -A 1
 echo "Waiting 5 minutes, then trying each minute to log in until successful"
 sleep 300 && until ssh mai; do sleep 60; done
 # User must here enter password twice
-echo "Yohoo, machine is up and running! Logging in and ready to go!"
+echo "Yohoo, machine is up and running!"
+echo "Uploading backup of AGENT.md to new machine"
+scp AGENT.md mai:/home/knutfd/dev/  || true
+echo "Logging in and reado to go!"
 ssh mai
