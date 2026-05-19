@@ -14,7 +14,7 @@ source "${HOME}/.mconda3/etc/profile.d/mamba.sh"
 # mamba shell init
 
 # nvm
-echo "install nvm, node"
+echo "install nvm, node"GENT.md
 echo "--- nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # sourcing is the usual way to do it, but does not work within the script (probably because of bashrc interactive session check)
@@ -34,7 +34,7 @@ npm install -g @openai/codex
 copilot --allow-all-tools --version
 
 # set up dev env
-sudo chsh -s /bin/bash $USER
+# sudo chsh -s /bin/bash $USER
 
 # cd $HOME
 # mkdir dev/
@@ -51,13 +51,6 @@ sudo chsh -s /bin/bash $USER
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& sudo apt update \
 	&& sudo apt install gh -y
-
-if which stow >/dev/null; then
-	cd ~
-	mkdir -p old
-	mv ~/.bashrc old/ # replaced by stow bash below
-	mv ~/.profile old/
-fi
 
 STOWT="stow -t /home/$USER"
 cd ~/met-dev-setup/
@@ -77,7 +70,17 @@ cd dev
 
 git config --global receive.denyCurrentBranch warn
 
+# Install OpenDrift and dependencies
 git clone https://github.com/OpenDrift/opendrift.git
+cd opendrift
+mamba env create -f environment.yml
+conda activate opendrift
+pip install --no-deps -e .
+
+# Install TrajAn
 git clone https://github.com/OpenDrift/trajan.git
-git clone https://github.com/OpenDrift/trajan.git
-git clone https://github.com/jerabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
+cd ../trajan
+pip install --no-deps -e .
+cd ..
+
+# git clone https://github.com/jerabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
