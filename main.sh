@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export DEBIAN_FRONTEND=noninteractive
+export MAMBA_ROOT_PREFIX=$HOME/.mconda3
 
 sudo apt-get update
 
