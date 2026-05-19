@@ -13,6 +13,8 @@ bash Miniforge3.sh -b -p "${HOME}/.mconda3"
 source "${HOME}/.mconda3/etc/profile.d/mamba.sh"
 # mamba shell init
 
+conda config --set always_yes true
+
 # nvm
 echo "install nvm, node"GENT.md
 echo "--- nvm"
