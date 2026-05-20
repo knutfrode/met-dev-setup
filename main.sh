@@ -11,7 +11,7 @@ echo "python."
 wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3.sh -b -p "${HOME}/.mconda3"
 source "${HOME}/.mconda3/etc/profile.d/mamba.sh"
-# mamba shell init
+mamba shell init
 
 mamba install pip
 conda config --set always_yes true
