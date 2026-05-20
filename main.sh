@@ -5,7 +5,7 @@ export MAMBA_ROOT_PREFIX=$HOME/.mconda3
 
 sudo apt-get update
 
-sudo apt-get install -y git build-essential curl wget tmux git stow
+sudo apt-get install -y git build-essential curl wget tmux git stow direnv
 
 # mamba / python
 echo "python."
@@ -14,8 +14,8 @@ bash Miniforge3.sh -b -p "${HOME}/.mconda3"
 source "${HOME}/.mconda3/etc/profile.d/mamba.sh"
 # mamba shell init
 
+mamba install pip
 conda config --set always_yes true
-conda init
 
 # nvm
 echo "install nvm, node"GENT.md
@@ -53,7 +53,7 @@ $STOWT direnv
 $STOWT git
 $STOWT tmux
 $STOWT vim
-$STOWT bash
+#$STOWT bash
 
 cd ~
 
