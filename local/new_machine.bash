@@ -5,7 +5,7 @@ echo "Deleting existing machine..."
 ssh metai delete -y
 
 echo "Creating a new machine, but unfortunately you have to confirm with interactive commands :-("
-ssh metai create https://github.com/knutfrode/met-dev-setup.git 2>&1 | tee new_machine.log
+echo "y" | ssh metai create https://github.com/knutfrode/met-dev-setup.git 2>&1 | tee new_machine.log
 # User must here confirm interactively - perhaps metai create could be updated to accept -y ?
 
 ip=`grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' new_machine.log | tail -1`

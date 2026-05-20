@@ -4,8 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 export MAMBA_ROOT_PREFIX=$HOME/.mconda3
 
 sudo apt-get update
-
-sudo apt-get install -y git build-essential curl wget tmux git stow direnv
+sudo apt-get install -y git build-essential curl wget
 
 # mamba / python
 echo "python."
@@ -37,27 +36,8 @@ npm install -g @openai/codex
 
 copilot --allow-all-tools --version
 
-# set up dev env
-# sudo chsh -s /bin/bash $USER
-
-# cd $HOME
-# mkdir dev/
-# cd dev/
-# git clone https://github.com/knutfrode/met-dev-setup.git
-
-STOWT="stow -t /home/$USER"
-cd ~/met-dev-setup/
-
-$STOWT conda
-$STOWT direnv
-$STOWT git
-$STOWT tmux
-$STOWT vim
-#$STOWT bash
-
-cd ~
-
 # current repos
+cd ~
 mkdir dev
 cd dev
 
@@ -67,14 +47,13 @@ git config --global receive.denyCurrentBranch warn
 git clone https://github.com/OpenDrift/opendrift.git
 cd opendrift
 mamba env create -f environment.yml
-conda activate opendrift
-pip install --no-deps -e .
+mamba run -n opendrift pip install --no-deps -e .
 cd ..
 
 # Install TrajAn
 git clone https://github.com/OpenDrift/trajan.git
 cd trajan
-pip install --no-deps -e .
+mamba run -n opendrift pip install --no-deps -e .
 cd ..
 
 # git clone https://github.com/jerabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
