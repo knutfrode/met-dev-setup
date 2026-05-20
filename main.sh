@@ -17,7 +17,7 @@ mamba install pip
 conda config --set always_yes true
 
 # nvm
-echo "install nvm, node"GENT.md
+echo "install nvm, node"
 echo "--- nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # sourcing is the usual way to do it, but does not work within the script (probably because of bashrc interactive session check)
@@ -31,15 +31,14 @@ npm install -g @github/copilot
 npm install -g @anthropic-ai/claude-code
 npm install -g @openai/codex
 
-# history -s "claude --dangerously-skip-permissions"
-# history -s "codex --full-auto"
-
 copilot --allow-all-tools --version
 
-# current repos
+# Folder software for tools like OpenDrift and TrajAn
 cd ~
 mkdir dev
 cd dev
+mkdir software
+cd software
 
 git config --global receive.denyCurrentBranch warn
 
@@ -57,3 +56,16 @@ mamba run -n opendrift pip install --no-deps -e .
 cd ..
 
 # git clone https://github.com/jerabaul29/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa.git
+
+# Update bashrc
+cat >> ~/.bashrc << 'EOF'
+# KF addons
+# ---------
+alias ..='cd ..'
+alias l='ls -lrth'
+
+mamba activate opendrift
+EOF
+
+cd ~/dev
+mkdir darpa

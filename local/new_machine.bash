@@ -21,5 +21,8 @@ echo "Yohoo, machine is up and running!"
 echo "Uploading backup of AGENT.md to new machine"
 scp AGENT.md mai:/home/knutfd/dev/  || true
 
+echo "Uploading darpa trajectory data"
+scp ~/software/2024_drift_in_the_ocean_with_ml_blue_follow_up_darpa/data/spotter_data/spotter_data_bulk_trajan_trajectories_to_use_hourly.nc mai:/home/knutfd/dev/darpa/  || true
+
 echo "Logging in and ready to go!"
 ssh mai
